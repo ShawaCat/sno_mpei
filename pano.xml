@@ -16,9 +16,7 @@
     <hotspots width="180" height="20" smoothmovement="0" wordwrap="1">
       <label backgroundalpha="1" height="20" textalpha="1" enabled="1" bordercolor="0x000000" textcolor="0x000000" borderradius="1" width="180" borderalpha="1" backgroundcolor="0xffffff" border="1" background="1" wordwrap="1"/>
       <polystyle bordercolor="0x0000ff" backgroundalpha="0.25098" handcursor="1" borderalpha="1" backgroundcolor="0x0000ff" mode="0"/>
-      <polyhotspot title="" url="{node4}" id="Poly01" target="$fwd" description="">
-        <polystring>-153.55/1.38|-151.77/0.35|-152.14/-1.4|-155.34/-1.21|-156.4/-0.71|-154.97/1.05</polystring>
-      </polyhotspot>
+      <hotspot tilt="0.07" skinid="ht_node" title="" url="{node4}" id="Point01" target="" pan="-153.41" description=""/>
     </hotspots>
     <media/>
     <transition zoomfov="40" zoomspeed="2" blendcolor="0x000000" blendtime="1" delay="none" softedge="0" zoomout="0" enabled="1" type="crossdissolve" zoomafteroutfov="40" zoomoutpause="1" zoomafterinfov="140" zoomin="0"/>
@@ -42,9 +40,7 @@
     <hotspots width="180" height="20" smoothmovement="0" wordwrap="1">
       <label backgroundalpha="1" height="20" textalpha="1" enabled="1" bordercolor="0x000000" textcolor="0x000000" borderradius="1" width="180" borderalpha="1" backgroundcolor="0xffffff" border="1" background="1" wordwrap="1"/>
       <polystyle bordercolor="0x0000ff" backgroundalpha="0.25098" handcursor="1" borderalpha="1" backgroundcolor="0x0000ff" mode="0"/>
-      <polyhotspot title="" url="{node3}" id="Poly01" target="$fwd" description="">
-        <polystring>-3.98/-10.25|-2.34/-11.16|-2.13/-14.61|-3.25/-16.62|-5.4/-16.39|-6.81/-14.03|-6.61/-11.16|-4.86/-10.14</polystring>
-      </polyhotspot>
+      <hotspot tilt="-13.5" skinid="ht_node" title="" url="{node3}" id="Point01" target="" pan="-4.69" description=""/>
     </hotspots>
     <media/>
     <transition zoomfov="40" zoomspeed="2" blendcolor="0x000000" blendtime="1" delay="none" softedge="0" zoomout="0" enabled="1" type="crossdissolve" zoomafteroutfov="40" zoomoutpause="1" zoomafterinfov="140" zoomin="0"/>
