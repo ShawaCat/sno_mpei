@@ -1,3 +1,3 @@
 window.addEventListener('load', function() {
-  document.querySelector('.loader').style.display = 'none';
+  document.querySelector('.loading-screen').style.display = 'none';
 });
