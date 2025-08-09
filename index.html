@@ -1,133 +1,114 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
-		<title></title>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
-		<meta name="apple-mobile-web-app-capable" content="yes" />
-		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
-		<meta property="og:title" content="">
-		<meta property="og:description" content="">
-		<meta name="mobile-web-app-capable" content="yes" />
-		<meta property="og:image" content="preview.jpg">
-		<style type="text/css" title="Default">
-			/* fullscreen */
-			html {
-				height:100%;
-			}
-			body {
-				height:100%;
-				margin: 0px;
-				background: black;
-				color: white;
-				overflow:hidden; /* disable scrollbars */
-				-webkit-tap-highlight-color: rgba(0, 0, 0, 0); /* remove highlight on tab for iOS/Android */
-			}
-			/* fix for scroll bars on webkit & >=Mac OS X Lion */
-			::-webkit-scrollbar {
-				background-color: rgba(0,0,0,0.5);
-				width: 0.75em;
-				height: 0.75em;
-			}
-			::-webkit-scrollbar-thumb {
-				background-color:  rgba(255,255,255,0.5);
-			}
-		</style>
-	</head>
-	<body>
-<!-- - - - - - - 8<- - - - - - cut here - - - - - 8<- - - - - - - -->
-		
-		<script type="text/javascript" src="pano2vr_player.js?ts=56630817">
-		</script>
-		<script type="text/javascript" src="skin.js?ts=56630817">
-		</script>
-		<script src="https://www.youtube.com/iframe_api"></script>
-		<script src="https://player.vimeo.com/api/player.js"></script>
-		<div id="container" style="width:100%;height:100%;overflow:hidden;">
-		<br>Loading...<br><br>
-		</div>
-		<script type="text/javascript">
-		function parseParams(paramsString, params) {
-			paramsString = paramsString.substring(1);
-			var firstSeparatorPos = paramsString.indexOf(",");
-			if (firstSeparatorPos != -1) {
-				params.startNode = paramsString.slice(0, firstSeparatorPos);
-				var viewingParamsString = paramsString.slice(firstSeparatorPos + 1);
-				var viewingParams = viewingParamsString.split(",");
-				if (viewingParams.length >= 3) {
-					var startView = {};
-					startView["pan"] = viewingParams[0];
-					startView["tilt"] = viewingParams[1];
-					startView["fov"] = viewingParams[2];
-					if (viewingParams.length >= 4) {
-						startView["projection"] = viewingParams[3];
-					}
-					params.startView = startView;
-				}
-			} else {
-				params.startNode = paramsString;
-				params.startView = "";
-			}
-		}
-		var params = {};
-		parseParams(document.location.hash, params);
-		var startNode = params.startNode;
-		var startView = params.startView;
-		if (("onhashchange" in window) && (!(/MSIE (\d+\.\d+);/.test(navigator.userAgent)))) {
-			window.onhashchange = function () {
-				parseParams(window.location.hash, params);
-				pano.openNext('{' + params.startNode + '}', params.startView);
-			}
-		} else {
-			var lastHash = window.location.hash;
-			window.setInterval(function () {
-				if (window.location.hash != lastHash) {
-					lastHash = window.location.hash;
-					parseParams(window.location.hash, params);
-					pano.openNext('{' + params.startNode + '}', params.startView);
-				}
-			}, 100);
-		}
-			// create the panorama player with the container
-			pano=new pano2vrPlayer("container");
-			pano.startNode = startNode;
-			pano.startView = startView;
-			pano.setQueryParameter("ts=56630817")
-			// add the skin object
-			skin=new pano2vrSkin(pano);
-			// load the configuration
-			window.addEventListener("load", function() {
-				pano.readConfigUrlAsync("pano.xml?ts=56630817");
-			});
-			if (window.navigator.userAgent.match(/Safari/i)) {
-				// fix for white borders, rotation on iPhone
-				function iosHfix(e) {
-					window.scrollTo(0, 1);
-					var container=document.getElementById("container");
-					var oh=container.offsetHeight;
-					document.documentElement.style.setProperty('height', '100vh');
-					if (oh!=container.offsetHeight) {
-						container.style.setProperty('height',"100%");
-					} else {
-						container.style.setProperty('height',window.innerHeight+"px");
-					}
-					window.scrollTo(0, 0);
-					pano.setViewerSize(container.offsetWidth, container.offsetHeight);
-				};
-				setTimeout(iosHfix,0);
-				setTimeout(iosHfix,100);
-				window.addEventListener("resize", function() {
-					setTimeout(iosHfix,0);
-					// hide toolbar on iPad happens with a delay
-					setTimeout(iosHfix,500);
-					setTimeout(iosHfix,1000);
-					setTimeout(iosHfix,2000);
-				});
-			}
-		</script>
-		<noscript>
-			<p><b>Please enable Javascript!</b></p>
-		</noscript>
-<!-- - - - - - - 8<- - - - - - cut here - - - - - 8<- - - - - - - -->
-	</body>
-</html>
+<html style="font-size: 16px;" lang="ru"><head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="Цифровизация лабораторий, Цифровизация лабораторий — это проект студенческого научного общество по съёмке панорам учебных лабораторий МЭИЭто поможет абитуриентам увидеть оснащение наших кафедр, не выходя из дома, Панорамы лабораторий​">
+    <meta name="description" content="">
+    <title>Главная</title>
+    <link rel="stylesheet" href="nicepage.css" media="screen">
+<link rel="stylesheet" href="index.css" media="screen">
+    <script class="u-script" type="text/javascript" src="jquery.js" defer=""></script>
+    <script class="u-script" type="text/javascript" src="nicepage.js" defer=""></script>
+    <meta name="generator" content="Nicepage 7.11.4, nicepage.com">
+    
+    
+    
+    
+    
+    <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
+    <script type="application/ld+json">{
+		"@context": "http://schema.org",
+		"@type": "Organization",
+		"name": "",
+		"logo": "images/11zon_cropped.png"
+}</script>
+    <meta name="theme-color" content="#478ac9">
+    <meta property="og:title" content="Главная">
+    <meta property="og:type" content="website">
+  <meta data-intl-tel-input-cdn-path="intlTelInput/"></head>
+  <body data-home-page="Главная.html" data-home-page-title="Главная" data-path-to-root="./" data-include-products="false" class="u-body u-clearfix u-overlap u-overlap-contrast u-overlap-transparent u-xl-mode" data-lang="ru"><header class="u-clearfix u-header" id="sec-b659" data-animation-name="" data-animation-duration="0" data-animation-delay="0" data-animation-direction=""><div class="u-clearfix u-sheet u-sheet-1">
+        <a href="#" class="u-image u-logo u-image-1" data-image-width="1312" data-image-height="1312">
+          <img src="images/11zon_cropped.png" class="u-logo-image u-logo-image-1">
+        </a>
+        <nav class="u-menu u-menu-hamburger u-offcanvas u-menu-1" data-responsive-from="XL" role="navigation">
+          <div class="menu-collapse">
+            <a class="u-button-style u-hamburger-link u-nav-link" href="#" tabindex="-1" aria-label="Open menu" aria-controls="44f7">
+              <svg class="u-svg-link" viewBox="0 0 24 24"><use xlink:href="#svg-ef3c"></use></svg>
+              <svg class="u-svg-content" version="1.1" id="svg-ef3c" viewBox="0 0 16 16" x="0px" y="0px" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg"><g><rect y="1" width="16" height="2"></rect><rect y="7" width="16" height="2"></rect><rect y="13" width="16" height="2"></rect>
+</g></svg>
+            </a>
+          </div>
+          <div class="u-custom-menu u-nav-container">
+            <ul class="u-nav u-unstyled" role="menubar"><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="./">Главная</a>
+</li></ul>
+          </div>
+          <div class="u-custom-menu u-nav-container-collapse" id="44f7" role="region" aria-label="Menu panel">
+            <div class="u-black u-container-style u-inner-container-layout u-opacity u-opacity-95 u-sidenav">
+              <div class="u-inner-container-layout u-sidenav-overflow">
+                <div class="u-menu-close" tabindex="-1" aria-label="Close menu"></div>
+                <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-2" role="menubar"><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="./">Главная</a>
+</li></ul>
+              </div>
+            </div>
+            <div class="u-black u-menu-overlay u-opacity u-opacity-70"></div>
+          </div>
+        </nav>
+      </div></header>
+    <section class="u-align-center u-clearfix u-container-align-center u-image u-shading u-section-1" id="block-1" data-image-width="1538" data-image-height="940">
+      <div class="u-clearfix u-sheet u-valign-middle-lg u-valign-middle-md u-valign-middle-sm u-valign-middle-xs u-sheet-1">
+        <h1 class="u-align-center u-text u-text-default u-title u-text-1">Цифровизация лабораторий</h1>
+        <p class="u-align-center u-large-text u-text u-text-variant u-text-2">Проект Студенческого научного общества&nbsp;НИУ «МЭИ»</p>
+      </div>
+    </section>
+    <section class="u-align-center u-clearfix u-container-align-center u-grey-60 u-section-2" id="block-4">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <h2 class="u-align-center u-text u-text-default u-text-1"> Цифровизация лабораторий — это проект Студенческого научного общества (СНО) МЭИ, направленный на создание виртуальных туров по учебным лабораториям университета</h2>
+        <p class="u-align-center u-text u-text-2">Наша цель — Показать абитуриентам, студентам и партнёрам МЭИ современное оснащение кафедр в интерактивном формате. Благодаря 360°-панорамам и детальным описаниям оборудования любой желающий сможет "побывать" в лабораториях, не посещая вуз лично</p>
+      </div>
+    </section>
+    <section class="u-align-center u-clearfix u-container-align-center u-grey-60 u-section-3" id="block-2">
+      <div class="u-clearfix u-sheet u-valign-middle-lg u-valign-middle-md u-valign-middle-xs u-sheet-1">
+        <h2 class="u-align-center u-text u-text-default u-text-1">Виртуальные туры по корпусам<br>
+        </h2>
+        <div class="u-carousel u-expanded-width-xs u-gallery u-gallery-slider u-layout-carousel u-lightbox u-no-transition u-show-text-on-hover u-gallery-1" id="carousel-a9cb" data-interval="5000" data-u-ride="carousel">
+          <ol class="u-absolute-hcenter u-carousel-indicators u-carousel-indicators-1">
+            <li data-u-target="#carousel-a9cb" data-u-slide-to="0" class="u-active u-grey-70 u-shape-circle" style="width: 10px; height: 10px;"></li>
+          </ol>
+          <div class="u-carousel-inner u-gallery-inner u-gallery-inner-1" role="listbox">
+            <div class="u-active u-carousel-item u-effect-fade u-gallery-item u-carousel-item-1" data-href="building_Sh/index.html">
+              <div class="u-back-slide">
+                <img class="u-back-image u-expanded" src="images/90fc53c9.svg">
+              </div>
+              <div class="u-align-center u-over-slide u-shading u-valign-bottom u-over-slide-1">
+                <h3 class="u-gallery-heading">Корпус Ш</h3>
+                <p class="u-gallery-text">Кафедра ИТНО</p>
+              </div>
+            </div>
+          </div>
+          <a class="u-absolute-vcenter u-carousel-control u-carousel-control-prev u-grey-70 u-hidden-sm u-hidden-xs u-icon-circle u-opacity u-opacity-70 u-spacing-10 u-text-white u-carousel-control-1" href="#carousel-a9cb" role="button" data-u-slide="prev"><span aria-hidden="true">
+              <svg viewBox="0 0 451.847 451.847"><path d="M97.141,225.92c0-8.095,3.091-16.192,9.259-22.366L300.689,9.27c12.359-12.359,32.397-12.359,44.751,0
+c12.354,12.354,12.354,32.388,0,44.748L173.525,225.92l171.903,171.909c12.354,12.354,12.354,32.391,0,44.744
+c-12.354,12.365-32.386,12.365-44.745,0l-194.29-194.281C100.226,242.115,97.141,234.018,97.141,225.92z"></path></svg></span><span class="sr-only">
+              <svg viewBox="0 0 451.847 451.847"><path d="M97.141,225.92c0-8.095,3.091-16.192,9.259-22.366L300.689,9.27c12.359-12.359,32.397-12.359,44.751,0
+c12.354,12.354,12.354,32.388,0,44.748L173.525,225.92l171.903,171.909c12.354,12.354,12.354,32.391,0,44.744
+c-12.354,12.365-32.386,12.365-44.745,0l-194.29-194.281C100.226,242.115,97.141,234.018,97.141,225.92z"></path></svg></span>
+          </a>
+          <a class="u-absolute-vcenter u-carousel-control u-carousel-control-next u-grey-70 u-hidden-sm u-hidden-xs u-icon-circle u-opacity u-opacity-70 u-spacing-10 u-text-white u-carousel-control-2" href="#carousel-a9cb" role="button" data-u-slide="next"><span aria-hidden="true">
+              <svg viewBox="0 0 451.846 451.847"><path d="M345.441,248.292L151.154,442.573c-12.359,12.365-32.397,12.365-44.75,0c-12.354-12.354-12.354-32.391,0-44.744
+L278.318,225.92L106.409,54.017c-12.354-12.359-12.354-32.394,0-44.748c12.354-12.359,32.391-12.359,44.75,0l194.287,194.284
+c6.177,6.18,9.262,14.271,9.262,22.366C354.708,234.018,351.617,242.115,345.441,248.292z"></path></svg></span><span class="sr-only">
+              <svg viewBox="0 0 451.846 451.847"><path d="M345.441,248.292L151.154,442.573c-12.359,12.365-32.397,12.365-44.75,0c-12.354-12.354-12.354-32.391,0-44.744
+L278.318,225.92L106.409,54.017c-12.354-12.359-12.354-32.394,0-44.748c12.354-12.359,32.391-12.359,44.75,0l194.287,194.284
+c6.177,6.18,9.262,14.271,9.262,22.366C354.708,234.018,351.617,242.115,345.441,248.292z"></path></svg></span>
+          </a>
+        </div>
+      </div>
+    </section>
+    
+    
+    
+    <footer class="u-align-center u-clearfix u-container-align-center u-footer u-grey-80 u-footer" id="sec-39d8"><div class="u-clearfix u-sheet u-sheet-1">
+      </div></footer>
+    
+  
+</body></html>
